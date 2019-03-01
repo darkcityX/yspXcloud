@@ -8,10 +8,10 @@
 
 <script>
     export default {
-        name: 'Index',
+        name: 'IdePlatform',
         data () {
             return {
-                msg: 'Welcome to Your Vue.js App'
+            
             }
         }
     }

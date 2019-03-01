@@ -5,7 +5,7 @@
                 <img src="@/assets/images/logo.png" alt="">
             </div>
             <div class="layout-nav">
-                <MenuItem v-for="(item,index) in navList" :key="index" :name="item.name">
+                <MenuItem v-for="(item,index) in navList" :key="index" :name="item.name" :to="item.address">
                     <Icon :type="item.iconType"></Icon>
                     {{ item.title }}
                 </MenuItem>
@@ -19,11 +19,11 @@
         data(){
             return {
                 navList :[
-                    { title : '指南',        name : '指南',         iconType: 'ios-navigate',   href: '#'},
-                    { title : 'IDE平台',     name : 'IDE平台',      iconType: 'ios-keypad',     href: '#'},
-                    { title : '教程',        name : '教程',         iconType: 'ios-analytics',  href: '#'},
-                    { title : '社区',        name : '社区',         iconType: 'ios-paper',      href: '#'},
-                    { title : '相关技术支持', name : '相关技术支持',  iconType: 'ios-navigate',   href: '#'}
+                    { title : '指南',        name : '指南',         iconType: 'ios-navigate',   address: '/GuideIndex'},
+                    { title : 'IDE平台',     name : 'IDE平台',      iconType: 'ios-keypad',     address: '/IdePlatform'},
+                    { title : '教程',        name : '教程',         iconType: 'ios-analytics',  address: '#'},
+                    { title : '社区',        name : '社区',         iconType: 'ios-paper',      address: '#'},
+                    { title : '相关技术支持', name : '相关技术支持',  iconType: 'ios-navigate',   address: '#'}
                 ]
             }
         }    

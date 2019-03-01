@@ -1,8 +1,12 @@
 <template>
     <div id="app">
+        <!-- 1、导入head组件 -->
         <v-header></v-header>
 
+        <!-- 2、一级路由入口 -->
         <router-view/>
+
+        <!-- 3、导入foot组件 -->
 
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <div class="GuideIndex">
         <Row>
-            <Col span="4" style="background: red;">
+            <Col span="4">
                 <div class="leftNavList">
                     <div class="ad">
                         对的，你没看错 我是小广告    
@@ -42,6 +42,10 @@
             .ad{
                 width: 100%;
                 min-height: 200px;
+                border: 1px solid #e5e5e5;
+                border-radius: 4px;
+                
+                background: #f5f5f5;
             }
             .navlist{
 
