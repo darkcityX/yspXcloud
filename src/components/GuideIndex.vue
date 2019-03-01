@@ -4,7 +4,7 @@
             <Col span="4">
                 <div class="leftNavList">
                     <div class="ad">
-                        对的，你没看错 我是小广告    
+                           
                     </div>  
                     <div class="navlist">
                         <Menu :active-name="leftNav[0].title" width="auto">
