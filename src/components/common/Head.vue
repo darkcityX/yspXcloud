@@ -1,8 +1,8 @@
 <template>
     <div class="head">
-        <Menu class="headContainer" mode="horizontal" theme="dark" active-name="指南">
+        <Menu class="headContainer" mode="horizontal" theme="light" active-name="指南">
             <div class="layout-logo">
-                <img src="@/assets/images/logo.png" alt="">
+                <img src="@/assets/images/logo2.png" alt="">
             </div>
             <div class="layout-nav">
                 <MenuItem v-for="(item,index) in navList" :key="index" :name="item.name" :to="item.address">

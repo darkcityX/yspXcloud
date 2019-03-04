@@ -7,16 +7,35 @@ Vue.use(Router)
 //e => import('@/views/Launch.vue')
 
 const router =  new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
-            name: 'root',
+            redirect : "/guideIndex",
             component: e => import('@/components/GuideIndex')
         },
         { // 指南
-            path: '/GuideIndex',
+            path: '/guideIndex',
             name: 'GuideIndex',
-            component: e => import('@/components/GuideIndex') 
+            redirect: '/guideIndex/introduction',
+            component: e => import('@/components/GuideIndex'),
+            children: [
+                { // 介绍
+                    path: 'introduction',
+                    name: 'introduction',
+                    component: e => import('@/components/Guide/Introduction')
+                },
+                { // 示例
+                    path: 'example',
+                    name: 'example',
+                    component: e => import('@/components/Guide/Example')
+                },
+                { // 版本控制
+                    path: 'version',
+                    name: 'version',
+                    component: e => import('@/components/Guide/Version')
+                }  
+            ] 
         },
         { // IDE平台
             path: '/IdePlatform',

@@ -4,18 +4,25 @@
             <Col span="4">
                 <div class="leftNavList">
                     <div class="ad">
-                           
+                        <img src="./../assets/images/math.gif" alt="">       
                     </div>  
                     <div class="navlist">
-                        <Menu :active-name="leftNav[0].title" width="auto">
-                            <MenuItem v-for="(list,index) in leftNav" :key="index" :name="list.name" ::to="list.href">{{list.title}}</MenuItem>
+                        <Menu :active-name="activeMenu" width="auto" @on-select="routerParams">
+                            <MenuItem 
+                                v-for="(list,index) in leftNav" 
+                                :key="index" 
+                                :name="list.name" 
+                                :to="list.href"
+                                >
+                                    {{list.title}}
+                            </MenuItem>
                         </Menu>
                     </div>   
-                </div>    
+                </div>     
             </Col>
-            <Col span="20">
+            <Col span="20" style="padding: 0 10px;">
                 <div class="rightContent">
-                    
+                    <router-view></router-view>        
                 </div>
             </Col>
         </Row>
@@ -27,24 +34,71 @@
         name : 'GuideIndex',
         data(){
             return {
+                // 左侧导航菜单栏
                 leftNav: [
-                    { title: '介绍' , name : '介绍' , href: '#' },
-                    { title: '示例' , name : '示例' , href: '#' },
-                ]
+                    { solt: '0' , title: '介绍' , name : '介绍' , href: '/guideIndex/introduction' },
+                    { solt: '1' , title: '示例' , name : '示例' , href: '/guideIndex/example' },
+                    { solt: '2' , title: '版本' , name : '版本' , href: '/guideIndex/version' },
+                ],
+
+                // 当前菜单栏动态标签
+                activeMenu: '介绍'
+
             }
+        },
+        created: function(){
+
+            // 调用页面刷新状态函数
+            this.getActiveMenu();
+        },
+        mounted: function(){
+            // 导入初始路由判断函数 
+            // this.judgmentPage();
+        },
+        methods: {
+            routerParams(name){ // 根据激活路由进行当前刷新菜单栏的存储
+                console.log( "------ 调用初始路由判断函数 ------" );
+                console.log( name );  
+                localStorage.setItem( "activeMenu" , name );           
+            },
+            getActiveMenu(){ // 当页面刷新，根据本地存储激活的菜单栏进行状态存储
+                let activeMenu = !localStorage.getItem("activeMenu") ? '' : localStorage.getItem("activeMenu");
+                console.log( activeMenu );
+                switch( activeMenu ){
+                    case '':
+                        this.activeMenu = '介绍'; 
+                        this.$router.push({path:'/guideIndex/introduction'});
+                        break;  
+                    case '介绍':
+                        this.activeMenu = activeMenu;
+                        break; 
+                    case '示例':
+                        this.activeMenu = activeMenu;
+                        break; 
+                    case '版本':
+                        this.activeMenu = activeMenu;
+                        break;
+                }
+            }    
         }
+
     }
 </script>
 
 <style lang="less">
     .GuideIndex{
+        background: #f5f5f5;
         .leftNavList{
+            min-width: 160px;
+            border-right: 1px solid #e5e5e5;
+            background: #fff;
             .ad{
                 width: 100%;
-                min-height: 200px;
+                min-height: 100px;
+                max-height: 200px;
                 border: 1px solid #e5e5e5;
                 border-radius: 4px;
-                
+                overflow: hidden;
                 background: #f5f5f5;
             }
             .navlist{
@@ -52,7 +106,8 @@
             }   
         }
         .rightContent{
-
+            min-height: 760px;
+            background: #fff;
         }    
     }
 </style>
