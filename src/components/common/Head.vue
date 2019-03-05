@@ -21,12 +21,33 @@
                 navList :[
                     { title : '指南',        name : '指南',         iconType: 'ios-navigate',   address: '/GuideIndex'},
                     { title : 'IDE平台',     name : 'IDE平台',      iconType: 'ios-keypad',     address: '/IdePlatform'},
-                    { title : '教程',        name : '教程',         iconType: 'ios-analytics',  address: '#'},
-                    { title : '社区',        name : '社区',         iconType: 'ios-paper',      address: '#'},
-                    { title : '相关技术支持', name : '相关技术支持',  iconType: 'ios-navigate',   address: '#'}
+                    { title : '教程',        name : '教程',         iconType: 'ios-analytics',  address: '/query=1'},
+                    { title : '社区',        name : '社区',         iconType: 'ios-paper',      address: '/query=2'},
+                    { title : '相关技术支持', name : '相关技术支持',  iconType: 'ios-navigate',   address: '/query=3'}
                 ]
             }
-        }    
+        },
+        watch:{
+            $route(to,from){
+                // console.log( to.path );
+                if( to.path.indexOf("query") != -1 ){
+                    let query = to.path.slice(to.path.indexOf("=")+1);
+                    console.log( query );
+                    switch( query ) {
+                        case '1':
+                            window.location.href = 'http://dev.xcloud.yunshipei.com/index.html';
+                            break;
+                        case '2':
+                            alert("社区");
+                            break;
+                        case '3':
+                            alert("相关技术支持");
+                            break;
+                    }
+
+                }
+            }
+        }
     }
 </script>
 
