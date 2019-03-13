@@ -30,6 +30,21 @@
 </template>
 
 <script>
+    /** --------------- 导入markdown 代码块高亮：开始 ------------------- **/
+    import hljs from 'highlight.js'
+    import 'highlight.js/styles/atom-one-dark.css'
+
+    const highlightCode = () => {
+        const preEl = document.querySelectorAll('pre')
+
+        preEl.forEach((el) => {
+            hljs.highlightBlock(el)
+        })
+    }
+    // 1、在mounted 和 updated 生命周期中进行调用
+
+    /** --------------- 导入markdown 代码块高亮：结束 ------------------- **/
+
     export default {
         name : 'GuideIndex',
         data(){
@@ -46,14 +61,21 @@
 
             }
         },
-        created: function(){
+        created(){
 
             // 调用页面刷新状态函数
             this.getActiveMenu();
         },
-        mounted: function(){
+        mounted(){
             // 导入初始路由判断函数 
             // this.judgmentPage();
+            
+            // markdown 代码块高亮
+            highlightCode();
+        },
+        updated(){
+            // markdown 代码块高亮
+            highlightCode();    
         },
         methods: {
             routerParams(name){ // 根据激活路由进行当前刷新菜单栏的存储
@@ -106,6 +128,7 @@
             }   
         }
         .rightContent{
+            padding: 20px 10px;
             min-height: 760px;
             background: #fff;
         }    

@@ -23,7 +23,7 @@ const router =  new Router({
                 { // 介绍
                     path: 'introduction',
                     name: 'introduction',
-                    component: e => import('@/components/Guide/Introduction')
+                    component: e => import('@/mardowns/Guide/Introduction.md')//e => import('@/components/Guide/Introduction')
                 },
                 { // 示例
                     path: 'example',
