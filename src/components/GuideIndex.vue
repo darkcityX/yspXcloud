@@ -130,7 +130,13 @@
         .rightContent{
             padding: 20px 10px;
             min-height: 760px;
-            background: #fff;
+			background: #fff;
+			img{
+				margin: 0 auto;
+				display: block;
+				cursor: pointer;
+
+			}
         }    
     }
 </style>
