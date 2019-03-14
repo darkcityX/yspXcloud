@@ -23,7 +23,7 @@ const router =  new Router({
                 { // 介绍
                     path: 'introduction',
                     name: 'introduction',
-                    component: e => import('@/mardowns/Guide/Introduction.md')//e => import('@/components/Guide/Introduction')
+                    component: e => import('@/mardowns/Guide/Introduction.md')
                 },
                 { // 示例
                     path: 'example',
@@ -40,7 +40,16 @@ const router =  new Router({
         { // IDE平台
             path: '/IdePlatform',
             name: 'IdePlatform',
-            component: e => import('@/components/IdePlatform')
+            redirect: '/IdePlatform/specification',
+            component: e => import('@/components/IdePlatform'),
+            children: [
+                { // 规范整理
+                    path: 'specification',
+                    name: 'specification',
+                    component: e => import('@/mardowns/IdePlatform/specification.md')
+
+                }
+            ]
         }
     ]
 });
