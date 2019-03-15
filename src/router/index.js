@@ -47,7 +47,11 @@ const router =  new Router({
                     path: 'specification',
                     name: 'specification',
                     component: e => import('@/mardowns/IdePlatform/specification.md')
-
+                },
+                { // IDE平台相关介绍
+                    path: 'IDE_Introduction',
+                    name: 'IDE_Introduction',
+                    component: e => import('@/mardowns/IdePlatform/IDE_Introduction.md')    
                 }
             ]
         }

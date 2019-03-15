@@ -162,8 +162,13 @@ return content;
 
 ## 四、正式上线后的控制台输出
 
-  
-  
-  aaaa
+<br>
 
--
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)、要求适配后项目在正式上线后、一律要求不能有控制台输出（pc除外）。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)、有必要在代码程序中保留相关console，有利于后期维护。注意在上线后加上注释。<br>
+
+<br>
+
+
+
+

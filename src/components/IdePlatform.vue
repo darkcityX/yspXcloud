@@ -13,7 +13,7 @@
                                 <template slot="title">
                                     {{ subMenu.name }}
                                 </template>
-                                <MenuItem v-for="(menu,index) in subMenu.secondary" :key="index" :name="menu.name">{{ menu.name }}</MenuItem>
+                                <MenuItem v-for="(menu,index) in subMenu.secondary" :key="index" :name="menu.name" :to="menu.href">{{ menu.name }}</MenuItem>
                             </Submenu>
 
                         </Menu>
@@ -59,12 +59,12 @@
                             {
                                 solt : 0-0, 
                                 name : '相关规范整理',
-                                href: '#'
+                                href: '/IdePlatform/specification'
                             },
                             {
                                 solt : 0-1,
                                 name : 'IDE平台相关介绍',
-                                href: '#'
+                                href: '/IdePlatform/IDE_Introduction'
                             }
                         ]
                     },
