@@ -67,77 +67,108 @@
                                 href: '/IdePlatform/IDE_Introduction'
                             }
                         ]
+					},
+					{
+                        solt : 1, 
+                        name : '公共基础配置及文件说明',
+						secondary : [ // 侧边栏二级导航
+							{
+                                solt : 1-1, 
+                                name : '项目起始相关配置说明',
+                                href: '/IdePlatform/specification'
+                            },
+                            {
+                                solt : 1-2, 
+                                name : 'css配置文件',
+                                href: '/IdePlatform/specification'
+                            },
+                            {
+                                solt : 1-3,
+                                name : 'js配置文件',
+                                href: '/IdePlatform/IDE_Introduction'
+							},
+							{
+                                solt : 1-4,
+                                name : '自定义API文件',
+                                href: '/IdePlatform/IDE_Introduction'
+							},
+							{
+                                solt : 1-5,
+                                name : '公共资源文件',
+                                href: '/IdePlatform/IDE_Introduction'
+                            }
+                        ]
                     },
                     {
-                        solt : 1,
+                        solt : 2,
                         name : '二次封装常用组件',
                         secondary : [
                             {
-                                solt : 1-0,
-                                name : '定制化样式封装',
-                                href : '#'
+                                solt : 2-0,
+                                name : '定制化样式组件封装',
+                                href : '/IdePlatform/customized'
                             },
                             {
-                                solt : 1-1,
+                                solt : 2-1,
                                 name : '特殊需求的组件定制化封装',
                                 href : '#'
                             }
                         ]
                     },
                     {
-                        solt : 2,
+                        solt : 3,
                         name : '适配技术难点解析',
                         secondary : [
                            {
-                                solt : 2-0,
+                                solt : 3-0,
                                 name : '动态数据采集问题处理',
                                 href : '#'
                             }, 
                             {
-                                solt : 2-1,
+                                solt : 3-1,
                                 name : 'DOM重组与全局js文件异常问题解析',
                                 href : '#'
                             }, 
                             {
-                                solt : 2-2,
+                                solt : 3-2,
                                 name : 'flash插件处理方法',
                                 href : '#'
                             }, 
                             {
-                                solt : 2-3,
+                                solt : 3-3,
                                 name : 'iframe相关问题解析',
                                 href : '#'
                             }, 
                         ]
                     },
                     {
-                        solt : 3,
+                        solt : 4,
                         name : '发版未出现适配效果问题解析',
                         secondary : [
                             {
-                                solt : 3-0,
+                                solt : 4-0,
                                 name : '222222',
                                 href : '#',
                             }
                         ]
                     },
                     {
-                        solt : 4,
+                        solt : 5,
                         name : '平台所涉及到的前端知识整理',
                         secondary : [
                             {
-                                solt : 4-0,
+                                solt : 5-0,
                                 name : 'rem基准值',
                                 href : '#',
                             }
                         ]
                     },
                     {
-                        solt : 5,
+                        solt : 6,
                         name : '客户答疑',
                         secondary : [
                             {
-                                solt : 5-0,
+                                solt : 6-0,
                                 name : '111111',
                                 href : '#',   
                             }

@@ -11,7 +11,7 @@
 
 <br>
 
-![规范9](./../../assets/images/IdePlatformImages/aj.jpg "规范") 
+![规范9](./../../../assets/images/IdePlatformImages/aj.jpg "规范") 
 
 <br>
 
@@ -26,7 +26,7 @@
 
 <br>
 
-![规范10](./../../assets/images/IdePlatformImages/ak.jpg "规范") 
+![规范10](./../../../assets/images/IdePlatformImages/ak.jpg "规范") 
 
 <br>
 
@@ -42,7 +42,7 @@
 
 <br>
 
-![规范11](./../../assets/images/IdePlatformImages/al.jpg "规范") 
+![规范11](./../../../assets/images/IdePlatformImages/al.jpg "规范") 
 
 <br>
 

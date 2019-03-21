@@ -15,7 +15,7 @@
 
 <br>
 
-![规范1](./../../assets/images/IdePlatformImages/aa.jpg "规范") 
+![规范1](./../../../assets/images/IdePlatformImages/aa.jpg "规范") 
 
 <br>
 
@@ -48,7 +48,7 @@
 
 <br>
 
-![规范2](./../../assets/images/IdePlatformImages/ab.jpg "规范") 
+![规范2](./../../../assets/images/IdePlatformImages/ab.jpg "规范") 
 
 <br>
 
@@ -57,7 +57,7 @@
 
 <br>
 
-![规范3](./../../assets/images/IdePlatformImages/ac.jpg "规范")
+![规范3](./../../../assets/images/IdePlatformImages/ac.jpg "规范")
 
 <br>
 
@@ -65,7 +65,7 @@
 
 <br>
 
-![规范4](./../../assets/images/IdePlatformImages/ad.jpg "规范")
+![规范4](./../../../assets/images/IdePlatformImages/ad.jpg "规范")
 
 <br>
 
@@ -77,7 +77,7 @@
 
 <br>
 
-![规范4](./../../assets/images/IdePlatformImages/ae.jpg "规范")
+![规范4](./../../../assets/images/IdePlatformImages/ae.jpg "规范")
 
 <br>
 
@@ -86,7 +86,7 @@
 
 <br>
 
-![规范5](./../../assets/images/IdePlatformImages/af.jpg "规范")
+![规范5](./../../../assets/images/IdePlatformImages/af.jpg "规范")
 
 <br>
 
@@ -100,7 +100,7 @@
 
 <div style="text-align: center;">PC代码</div>
 
-![规范6](./../../assets/images/IdePlatformImages/ag.jpg "规范")
+![规范6](./../../../assets/images/IdePlatformImages/ag.jpg "规范")
 
 <br>
 
@@ -137,7 +137,7 @@ return content;
 
 <br>
 
-![规范7](./../../assets/images/IdePlatformImages/ah.jpg "规范")
+![规范7](./../../../assets/images/IdePlatformImages/ah.jpg "规范")
 
 <br>
 
@@ -145,7 +145,7 @@ return content;
 
 <br>
 
-![规范8](./../../assets/images/IdePlatformImages/ai.jpg "规范")
+![规范8](./../../../assets/images/IdePlatformImages/ai.jpg "规范")
 
 <br>
 

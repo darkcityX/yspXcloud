@@ -46,13 +46,18 @@ const router =  new Router({
                 { // 规范整理
                     path: 'specification',
                     name: 'specification',
-                    component: e => import('@/mardowns/IdePlatform/specification.md')
+                    component: e => import('@/mardowns/IdePlatform/PingTaiWenTiJieXi/specification.md')
                 },
                 { // IDE平台相关介绍
                     path: 'IDE_Introduction',
                     name: 'IDE_Introduction',
-                    component: e => import('@/mardowns/IdePlatform/IDE_Introduction.md')    
-                }
+                    component: e => import('@/mardowns/IdePlatform/PingTaiWenTiJieXi/IDE_Introduction.md')    
+				},
+				{ // 定制化组件二次样式封装
+                    path: 'customized',
+                    name: 'customized',
+                    component: e => import('@/mardowns/IdePlatform/ErCiZuJianFengZhuang/customized.md')    
+                },
             ]
         }
     ]
