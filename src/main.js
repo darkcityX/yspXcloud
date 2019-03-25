@@ -8,6 +8,9 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
+// 引用base.css
+import '@/assets/css/Reset.css';
+
 
 
 Vue.use(iView);
