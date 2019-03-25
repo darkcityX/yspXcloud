@@ -4,16 +4,19 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-//e => import('@/views/Launch.vue')
-
 const router =  new Router({
     mode: 'history',
     routes: [
         {
             path: '/',
-            redirect : "/guideIndex",
-            component: e => import('@/components/GuideIndex')
-        },
+            redirect : "/login",
+            component: e => import('@/components/Login')
+		},
+		{
+			path: '/login',
+			name: 'login',
+			component: e => import('@/components/Login')
+		},
         { // 指南
             path: '/guideIndex',
             name: 'GuideIndex',
