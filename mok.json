@@ -1,0 +1,21 @@
+{
+	"user": {
+        "code" : "100",
+        "msg" : "成功",
+        "data" : [
+            {
+                "uid" : "000",
+                "username" : "darkcity_x@163.com",
+                "password" : "123456.",
+                "tocken" : "wd5250432225ohpyaw"
+            },
+            {
+                "uid" : "001",
+                "username" : "yangzhe@163.com",
+                "password" : "123456.",
+                "tocken" : "wd5250432225ohpyaw"
+            }            
+        ]
+
+    }
+}

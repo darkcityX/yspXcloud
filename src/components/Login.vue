@@ -25,6 +25,9 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+    import store from './../store';
+    
 	export default {
 		name: 'login',
 		data(){
@@ -39,20 +42,60 @@
                     ],
                     password: [
                         { required: true, message: '请输入您的密码', trigger: 'blur' },
-                        { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+                        { type: 'string', min: 6, max: 12, message: '请输入6~12位密码', trigger: 'blur' }
                     ]
                 }
 			}
-		},
+        },
+        computed : {
+            ...mapState([
+                'isLogin',
+                'userList'
+            ]),
+            isLogin(){
+                return store.state.isLogin;
+            },
+            userList(){
+                return store.state.userList;
+            }
+        },
+        created(){
+            // 调用获取用户信息接口
+            this.getUserList()
+        },
 		methods: {
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
+                    console.log( valid );
                     if (valid) {
-                        this.$Message.success('Success!');
+                        console.log( this.checkedFrom(this.userList,this.formInline) );
+                        if( this.checkedFrom(this.userList,this.formInline) ){
+                            this.$Message.success('登陆成功!');
+                            this.$store.dispatch("changeisLogin",true);
+                            this.$router.push({
+                                path: '/guideIndex'
+                            });
+                        }else{
+                            this.$Message.error('登陆失败!');    
+                        }
                     } else {
-                        this.$Message.error('Fail!');
+                        this.$Message.error('登陆失败!');
                     }
-                })
+                });
+            },
+            getUserList(){
+                this.$axios.get('/user.json')
+                    .then(res=>{
+                        // this.$store.dispatch("changeisLogin",true);
+                        this.$store.dispatch("saveUserLists",res);
+                    }).catch(err=>{
+                        console.log(err);
+                    });
+            },
+            checkedFrom(arr,item){
+                return arr.some((val,index,arr)=>{
+                    return item.user == val.username && item.password == val.password;
+                });
             }
         }
 	}
@@ -65,7 +108,7 @@
 		top: 0;
 		bottom: 0;
 		width: 100%;
-		.BgImg('./../images/loginBg2.jpg',cover);
+		.BgImg('./../images/loginBg.png',cover);
 		.iviewRow{
 			height: 100%;
 			.iviewCol{
@@ -73,14 +116,16 @@
 				margin-top: 10%;
 				padding: 10px;
 				.loginModel{
-					padding: 10% 20%;
-					background: rgba(255,255,255,0.1);
+                    padding: 10% 20%;
+                    .BgImg('./../images/loginModel.png',cover);
+                    background-size: 100% 100%;
+					// background: rgba(255,255,255,0.1);
 					.loginContent{
 						.user,.password,.submitBtns{
 							.resize;
-							margin-bottom: 24px;
+							margin-bottom: 40px;
 							display: block;
-						}
+                        }
 						.submitBtns{
 							margin-top: 60px;
 							margin-bottom: 0;	

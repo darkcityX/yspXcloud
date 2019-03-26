@@ -12,8 +12,11 @@
 </template>
 
 <script>
+    // import {mapState} from 'vuex';
+    // import store from './store';
 
     import Head from '@/components/common/Head';
+
 
     export default {
 		name: 'App',
@@ -21,23 +24,63 @@
 			return {
 				isShow : true
 			}
-		},
+        },
+        // computed : {
+        //     ...mapState([
+        //         'isLogin',
+        //         'userList'
+        //     ]),
+        //     isLogin(){
+        //         return store.state.isLogin;
+        //     },
+        //     userList(){
+        //         return store.state.userList;
+        //     }
+        // },
         components:{
             'v-header': Head
 		},
 		created(){
 			location.pathname == '/' ||
 			location.pathname == '/login'
-				? this.isShow = false : this.isShow = true;
-		},
+                ? this.isShow = false : this.isShow = true;
+                
+            // // 调用获取用户信息接口
+            // this.getUserList();
+        },
+        mounted(){
+            // console.log( "/* ---- 挂载完毕！测试store  ---- */");
+            // console.log( this.isLogin );
+            // console.log( this.userList );
+        },
 		watch: {
 			$route(to,from){
-				console.log( to );
 				to.path == '/' ||
 				to.path == '/login'
 					? ( this.isShow = false ) : (this.isShow = true);
 			}
-		}
+        },
+        methods:{
+            // getUserList(){
+            //     this.$axios.get('/user.json')
+            //         .then(res=>{
+            //             // console.log( "--- 3:调用封装的axios ----" );
+            //             // console.log( res );
+            //             // this.$store.dispatch("changeisLogin",true);
+            //             this.$store.dispatch("changeisLogin",true);
+            //             console.log( "---store-----:" + this.isLogin );
+            //             console.log( "ajax---------开始---" );
+            //             console.log( res );
+            //             console.log( "ajax---------结束---" );
+            //             this.$store.dispatch("saveUserLists",res);
+            //             console.log( "完成状态管理---------------" );
+            //             console.log( this.userList );
+            //         }).catch(err=>{
+            //             // console.log("--- 4:调用封装的axios报错 ---");
+            //             console.log(err);
+            //         });
+            // }
+        }
     }
 </script>
 
@@ -51,7 +94,7 @@
 
 	}
 	// 重置iview样式
-	.ivu-form{
+	.ivu-form{ // 登陆页表单样式重置
 		.ivu-form-item-content{
 			.ivu-input-wrapper{
 				.ivu-input-group-prepend{
@@ -62,7 +105,7 @@
 					}
 				}
 				input{
-					height: 40px;
+					height: 56px;
 					color: #fff;// #06A6B4;
 					font-size: 16px;
 					background: rgba(6,166,180,0.6);
