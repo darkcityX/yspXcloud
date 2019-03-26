@@ -25,18 +25,6 @@
 				isShow : true
 			}
         },
-        // computed : {
-        //     ...mapState([
-        //         'isLogin',
-        //         'userList'
-        //     ]),
-        //     isLogin(){
-        //         return store.state.isLogin;
-        //     },
-        //     userList(){
-        //         return store.state.userList;
-        //     }
-        // },
         components:{
             'v-header': Head
 		},
@@ -49,9 +37,7 @@
             // this.getUserList();
         },
         mounted(){
-            // console.log( "/* ---- 挂载完毕！测试store  ---- */");
-            // console.log( this.isLogin );
-            // console.log( this.userList );
+
         },
 		watch: {
 			$route(to,from){
@@ -61,25 +47,7 @@
 			}
         },
         methods:{
-            // getUserList(){
-            //     this.$axios.get('/user.json')
-            //         .then(res=>{
-            //             // console.log( "--- 3:调用封装的axios ----" );
-            //             // console.log( res );
-            //             // this.$store.dispatch("changeisLogin",true);
-            //             this.$store.dispatch("changeisLogin",true);
-            //             console.log( "---store-----:" + this.isLogin );
-            //             console.log( "ajax---------开始---" );
-            //             console.log( res );
-            //             console.log( "ajax---------结束---" );
-            //             this.$store.dispatch("saveUserLists",res);
-            //             console.log( "完成状态管理---------------" );
-            //             console.log( this.userList );
-            //         }).catch(err=>{
-            //             // console.log("--- 4:调用封装的axios报错 ---");
-            //             console.log(err);
-            //         });
-            // }
+			
         }
     }
 </script>

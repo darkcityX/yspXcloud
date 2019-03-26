@@ -33,6 +33,7 @@
 ## 二、组件创建规范
 
 <br>
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IDE平台组件可大致划分为两类(这里所分的类指的是DOM重组的自由度)：<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)、IDE平台预定义组件(包括：标题、菜单、图片轮播、图片画廊等等...)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)、IDE组件自定义组件(包括：段落、自定义组件)<br>
@@ -43,7 +44,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)、优先选用与UI设计稿匹配度较高的组件及组件主题的确认<br>
 
 <div style="color: red;">
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：部分组件的主题有IDE平台预定义好的UI交互JS（如图片画廊中的简约类型、菜单中的部分主题），提前确认好所要使用的主题可以避免组件适配后不能达到客户需要的问题
+
 </div>
 
 <br>
@@ -72,7 +75,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)、在【数据采集】中尽量做好预报错处理，尤其是在使用replace等API时<br>
 
 <div style="color: red;">
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：在数据采集时，这时属于数据预处理并进行适配DOM重组的重要时刻，一旦使用zeptoAPI但对象为null、undefined的话，页面会直接报错，适配效果丢失。所以在此刻需要着重注意数据抓取时的预防机制
+
 </div>
 
 <br>
@@ -93,7 +98,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)、在数据为动态数据时，请注意做好转义处理，防止抓取的内容中的特殊字符影响到适配后移动端页面的信息展示<br>
 
 <div style="color: red;">
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果js中抓取文本内容中存在特殊字符（“ +）等最好进行转码处理
+
 </div>
 
 <br>
@@ -126,8 +133,8 @@ $(oldArr).each(function(i){
 });
 
 return content;
-
 ```
+<br>
 
 ## 三、代码规范整理
 

@@ -70,9 +70,14 @@
                     if (valid) {
                         console.log( this.checkedFrom(this.userList,this.formInline) );
                         if( this.checkedFrom(this.userList,this.formInline) ){
-                            this.$Message.success('登陆成功!');
-                            this.$store.dispatch("changeisLogin",true);
-                            this.$router.push({
+							// 登陆提示
+							this.$Message.success('登陆成功!');
+							// 改变vuex中的登陆状态
+							this.$store.dispatch("changeisLogin",true);
+							// 将登陆状态存储在本地
+							sessionStorage.setItem("isLogin",true);
+							// 路由跳转
+							this.$router.push({
                                 path: '/guideIndex'
                             });
                         }else{

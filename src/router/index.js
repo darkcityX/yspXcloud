@@ -67,37 +67,25 @@ const router =  new Router({
 });
 
 //路由守卫
-// router.beforeEach((to, from, next) => {
-//     console.log( "------------- 1 --------------------" );
-//     console.log( to );
+router.beforeEach((to, from, next) => {
+	let isLogin = sessionStorage.isLogin ? true : false;
+	
+	// 不需要进行验证的地址
+	let arr = ['/','/login'];
 
-//     console.log( "------------- 2 --------------------" );
-//     console.log( from );
+	// 循环遍历：全部为true则返回true
+	let checked = (arr,item)=>{
+		return arr.every((val,index,arr)=>{
+			return item != val;
+		})
+	}
+	if( !checked(arr,to.path) ){
+		next();
+	}else{
+		isLogin ? next() : router.push('/login');
+	}
 
-//     if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
-//         if(JSON.parse(localStorage.getItem('islogin'))){ //判断本地是否存在access_token
-//             next();
-//         }else {
-//             next({
-//             path:'/login'
-//             })
-//         }
-//     }
-//     else {
-//         next();
-//     }
-//     /*如果本地 存在 token 则 不允许直接跳转到 登录页面*/
-//     if(to.fullPath == "/login"){
-//         if(JSON.parse(localStorage.getItem('islogin'))){
-//             next({
-//                 path:from.fullPath
-//             });
-//         }else {
-//             next();
-//         }
-//     }
-
-// });
+});
 
 
 export default router;

@@ -250,10 +250,35 @@
             padding: 20px 10px;
             min-height: 760px;
             background: #fff;
-            /*---- markdow 语法调正 ----*/
+			/*---- markdow 语法调正 ----*/
+			.section{
+				font-size: 16px;
+			}
             h1{
+				font-size: 24px;
+				font-weight: 600;
                 text-align: center;
-            } 
+			} 
+			h2{
+				font-size: 18px;
+				font-weight: 600;
+			}
+			p{
+				font-size: 16px;
+				line-height: 2;
+			}
+			pre{
+				margin: 20px 60px;
+				padding: 0;
+				code{
+					margin: 0;
+					padding: 10px;
+					font-size: 16px;
+					span{
+						padding: 0 2px;
+					}
+				}
+			}
             img{
                 margin: 0 auto;
                 display: block;
