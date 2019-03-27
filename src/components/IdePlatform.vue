@@ -52,19 +52,24 @@
                 // 左侧导航菜单栏
                 
                 leftNav: [// 侧边栏一级导航
-                    {
+                    { // 相关规范整理
                         solt : 0, 
-                        name : 'IDE平台问题解析',
+                        name : '相关规范整理',
                         secondary : [ // 侧边栏二级导航
-                            {
+                            { 
                                 solt : 0-0, 
-                                name : '相关规范整理',
+                                name : 'Xcloud开发规范整理',
                                 href: '/IdePlatform/specification'
                             },
                             {
-                                solt : 0-1,
-                                name : 'IDE平台相关介绍',
-                                href: '/IdePlatform/IDE_Introduction'
+                                solt : 0-1, 
+                                name : 'UI参考规范',
+                                href: '/IdePlatform/UIspecification'   
+                            },
+                            {
+                                solt : 0-2, 
+                                name : '开发流程规范',
+                                href: '/IdePlatform/ProcessSpecification'   
                             }
                         ]
 					},
@@ -74,28 +79,28 @@
 						secondary : [ // 侧边栏二级导航
 							{
                                 solt : 1-1, 
-                                name : '项目起始相关配置说明',
-                                href: '/IdePlatform/specification'
+                                name : 'IDE平台配置',
+                                href: '/IdePlatform/IDE_Config'
                             },
                             {
                                 solt : 1-2, 
                                 name : 'css配置文件',
-                                href: '/IdePlatform/specification'
+                                href: '/IdePlatform/cssConfig'
                             },
                             {
                                 solt : 1-3,
                                 name : 'js配置文件',
-                                href: '/IdePlatform/IDE_Introduction'
+                                href: '/IdePlatform/jsConfig'
 							},
 							{
                                 solt : 1-4,
                                 name : '自定义API文件',
-                                href: '/IdePlatform/IDE_Introduction'
+                                href: '/IdePlatform/API_Config'
 							},
 							{
                                 solt : 1-5,
                                 name : '公共资源文件',
-                                href: '/IdePlatform/IDE_Introduction'
+                                href: '/IdePlatform/otherConfig'
                             }
                         ]
                     },
@@ -175,6 +180,7 @@
                         ]
                     }
                 ],
+
                 // open一级菜单
                 openSubMenu : 'IDE平台问题解析',
                 // 当前菜单栏动态标签

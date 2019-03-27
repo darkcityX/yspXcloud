@@ -46,17 +46,55 @@ const router =  new Router({
             redirect: '/IdePlatform/specification',
             component: e => import('@/components/IdePlatform'),
             children: [
-                { // 规范整理
+                /* ------------------------- 1 相关规范整理：开始 ---------------------------- */ 
+                { // 1-1、开发规范整理
                     path: 'specification',
                     name: 'specification',
-                    component: e => import('@/mardowns/IdePlatform/PingTaiWenTiJieXi/specification.md')
+                    component: e => import('@/mardowns/IdePlatform/GuiFanZhengLi/specification.md')
                 },
-                { // IDE平台相关介绍
-                    path: 'IDE_Introduction',
-                    name: 'IDE_Introduction',
-                    component: e => import('@/mardowns/IdePlatform/PingTaiWenTiJieXi/IDE_Introduction.md')    
-				},
-				{ // 定制化组件二次样式封装
+                { // 1-2、UI参考规范
+                    path: 'UIspecification',
+                    name: 'UIspecification',
+                    component: e => import('@/mardowns/IdePlatform/GuiFanZhengLi/UIspecification.md')
+                },
+                { // 1-3、开发流程规范
+                    path: 'ProcessSpecification',
+                    name: 'ProcessSpecification',
+                    component: e => import('@/mardowns/IdePlatform/GuiFanZhengLi/ProcessSpecification.md')
+                },
+                /* -------------------------1 相关规范整理：结束 ---------------------------- */ 
+                
+                /* ----------------- 2 公共基础文配置及相关文件说明：开始 -------------------- */
+                { // 2-1、IDE平台相关配置说明
+                    path: 'IDE_Config',
+                    name: 'IDE_Config',
+                    component: e => import('@/mardowns/IdePlatform/PublicWenJian/ConfigInstro.md')    
+                },
+                { // 2-2、css文件配置
+                    path: 'cssConfig',
+                    name: 'cssConfig',
+                    component: e => import('@/mardowns/IdePlatform/PublicWenJian/CssConfig.md')    
+                },
+                { // 2-3、js配置文件
+                    path: 'jsConfig',
+                    name: 'jsConfig',
+                    component: e => import('@/mardowns/IdePlatform/PublicWenJian/JsConfig.md')    
+                },
+                { // 2-4、API文件配置
+                    path: 'API_Config',
+                    name: 'API_Config',
+                    component: e => import('@/mardowns/IdePlatform/PublicWenJian/APIConfig.md')    
+                },
+                { // 2-5、API文件配置
+                    path: 'otherConfig',
+                    name: 'otherConfig',
+                    component: e => import('@/mardowns/IdePlatform/PublicWenJian/otherConfig.md')    
+                },
+                
+                /* ----------------- 2 公共基础文配置及相关文件说明：结束 -------------------- */
+                
+                
+                { // 定制化组件二次样式封装
                     path: 'customized',
                     name: 'customized',
                     component: e => import('@/mardowns/IdePlatform/ErCiZuJianFengZhuang/customized.md')    
