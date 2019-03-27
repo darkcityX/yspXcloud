@@ -2,15 +2,22 @@
 
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言：在Xcloud平台实际项目开发时,IDE平台所提供的组件已经可以很大便利性的提高了适配人员的开发效率，但针对大多少定制化不高的项目，仍有大量需要我们重复进行书写的代码。所以面对很多复用性的样式进行了封装,只需调用less函数跟参即可进行复用。<br>
 
 <br>
 
-## 一、页头组件
+## 一、页头组件二次封装
 
 <br>
 
-<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;函数封装:</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说明：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、必须注意先进行全局基础样式的引入<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、在调用时需要注意组件主题及参数的设定<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、与侧滑横排组件配合使用时,当有搜索小图标时且菜单栏小图标在头部时,需要设定其的偏移量<br>
+
+<br>
+
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;less函数封装:</b>
 
 ```less
 
@@ -157,12 +164,13 @@
 
 <br>
 
-## 一、页头组件
+## 二、侧滑横排菜单二次封装
 
-## 一、页头组件
+## 三、轮播图组件二次封装
 
-## 一、页头组件
+## 四、列表组件二次封装
 
-## 一、页头组件
+## 五、选项卡组件二次封装
 
-## 一、页头组件
+
+
