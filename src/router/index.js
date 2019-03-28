@@ -91,14 +91,29 @@ const router =  new Router({
                     component: e => import('@/mardowns/IdePlatform/PublicWenJian/otherConfig.md')    
                 },
                 
-                /* ----------------- 2 公共基础文配置及相关文件说明：结束 -------------------- */
+                /* ----------------- 2 公共基础文配置及相关文件说明：结束 -------------------- */                
                 
-                
+                /* ------------------------- 3 组件封装: 开始 ------------------------------ */
                 { // 定制化组件二次样式封装
                     path: 'customized',
                     name: 'customized',
                     component: e => import('@/mardowns/IdePlatform/ErCiZuJianFengZhuang/customized.md')    
                 },
+                { // 特殊需求的组件定制化封装
+                    path: 'specialCustom',
+                    name: 'specialCustom',
+                    component: e => import('@/mardowns/IdePlatform/ErCiZuJianFengZhuang/specialCustom.md')    
+                },
+                /* ------------------------- 3 组件封装: 结束 ------------------------------ */
+
+                /* ---------------------- 3 适配技术难点解析: 开始 -------------------------- */
+                { // 动态数据采集问题处理
+                    path: 'dynDataPress',
+                    name: 'dynDataPress',
+                    component: e => import('@/mardowns/IdePlatform/ShiPeiNanDianJieXi/dynamicDataProcessing.md')    
+                },
+
+                /* ---------------------- 3 适配技术难点解析: 结束 -------------------------- */
             ]
         }
     ]

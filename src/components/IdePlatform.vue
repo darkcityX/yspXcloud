@@ -73,7 +73,7 @@
                             }
                         ]
 					},
-					{
+					{ // 公共基础配置及文件说明
                         solt : 1, 
                         name : '公共基础配置及文件说明',
 						secondary : [ // 侧边栏二级导航
@@ -104,7 +104,7 @@
                             }
                         ]
                     },
-                    {
+                    { //二次封装常用组件
                         solt : 2,
                         name : '二次封装常用组件',
                         secondary : [
@@ -116,18 +116,18 @@
                             {
                                 solt : 2-1,
                                 name : '特殊需求的组件定制化封装',
-                                href : '#'
+                                href : '/IdePlatform/specialCustom'
                             }
                         ]
                     },
-                    {
+                    { // 适配技术难点解析
                         solt : 3,
                         name : '适配技术难点解析',
                         secondary : [
                            {
                                 solt : 3-0,
                                 name : '动态数据采集问题处理',
-                                href : '#'
+                                href : '/IdePlatform/dynDataPress'
                             }, 
                             {
                                 solt : 3-1,
@@ -146,15 +146,50 @@
                             }, 
                         ]
                     },
-                    {
+                    { // 网站不适配自查方式
                         solt : 4,
-                        name : '发版未出现适配效果问题解析',
+                        name : '网站不适配自查方式',
                         secondary : [
                             {
                                 solt : 4-0,
-                                name : '222222',
+                                name : '公有云网站不适配',
                                 href : '#',
-                            }
+                            },
+                            {
+                                solt : 4-1,
+                                name : '私有部署部署不适配',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-2,
+                                name : '服务器白名单',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-3,
+                                name : '在PC端完全不加载云适配的js',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-4,
+                                name : '同时满足多个域名/地址段的内容匹配',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-5,
+                                name : '插入代码后出现的兼容性问题',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-6,
+                                name : '网站HTTPS解决方案',
+                                href : '#',
+                            },
+                            {
+                                solt : 4-7,
+                                name : '适配效果被百度转码',
+                                href : '#',
+                            },
                         ]
                     },
                     {
@@ -287,8 +322,10 @@
 			}
             img{
                 margin: 0 auto;
+                padding: 10px;
                 display: block;
                 text-align: center;
+                background: #e5e5e5;
             }
 
         }    
