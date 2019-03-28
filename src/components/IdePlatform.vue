@@ -132,17 +132,17 @@
                             {
                                 solt : 3-1,
                                 name : 'DOM重组与全局js文件异常问题解析',
-                                href : '#'
+                                href : '/IdePlatform/refactoringDom'
                             }, 
                             {
                                 solt : 3-2,
                                 name : 'flash插件处理方法',
-                                href : '#'
+                                href : '/IdePlatform/flashProblem'
                             }, 
                             {
                                 solt : 3-3,
                                 name : 'iframe相关问题解析',
-                                href : '#'
+                                href : '/IdePlatform/iframeProblem'
                             }, 
                         ]
                     },
@@ -152,43 +152,18 @@
                         secondary : [
                             {
                                 solt : 4-0,
-                                name : '公有云网站不适配',
-                                href : '#',
+                                name : '预览版不适配',
+                                href : '/IdePlatform/previewProblem',
                             },
                             {
                                 solt : 4-1,
-                                name : '私有部署部署不适配',
-                                href : '#',
+                                name : '正式版适配效果丢失',
+                                href : '/IdePlatform/formalEdition',
                             },
                             {
                                 solt : 4-2,
-                                name : '服务器白名单',
-                                href : '#',
-                            },
-                            {
-                                solt : 4-3,
-                                name : '在PC端完全不加载云适配的js',
-                                href : '#',
-                            },
-                            {
-                                solt : 4-4,
-                                name : '同时满足多个域名/地址段的内容匹配',
-                                href : '#',
-                            },
-                            {
-                                solt : 4-5,
-                                name : '插入代码后出现的兼容性问题',
-                                href : '#',
-                            },
-                            {
-                                solt : 4-6,
-                                name : '网站HTTPS解决方案',
-                                href : '#',
-                            },
-                            {
-                                solt : 4-7,
-                                name : '适配效果被百度转码',
-                                href : '#',
+                                name : '不常见问题分析及处理思路',
+                                href : '/IdePlatform/otherProblem',
                             },
                         ]
                     },

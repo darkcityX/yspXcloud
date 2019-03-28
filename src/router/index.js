@@ -93,7 +93,7 @@ const router =  new Router({
                 
                 /* ----------------- 2 公共基础文配置及相关文件说明：结束 -------------------- */                
                 
-                /* ------------------------- 3 组件封装: 开始 ------------------------------ */
+                /* ----------------- 3 组件封装: 开始 ------------------------------ */
                 { // 定制化组件二次样式封装
                     path: 'customized',
                     name: 'customized',
@@ -106,14 +106,46 @@ const router =  new Router({
                 },
                 /* ------------------------- 3 组件封装: 结束 ------------------------------ */
 
-                /* ---------------------- 3 适配技术难点解析: 开始 -------------------------- */
+                /* ---------------------- 4 适配技术难点解析: 开始 -------------------------- */
                 { // 动态数据采集问题处理
                     path: 'dynDataPress',
                     name: 'dynDataPress',
                     component: e => import('@/mardowns/IdePlatform/ShiPeiNanDianJieXi/dynamicDataProcessing.md')    
                 },
+                { // DOM重组与全局js文件异常问题解析
+                    path: 'refactoringDom',
+                    name: 'refactoringDom',
+                    component: e => import('@/mardowns/IdePlatform/ShiPeiNanDianJieXi/RefactoringDom.md')    
+                },
+                { // flash插件处理方法
+                    path: 'flashProblem',
+                    name: 'flashProblem',
+                    component: e => import('@/mardowns/IdePlatform/ShiPeiNanDianJieXi/FlashProblem.md')    
+                },
+                { // iframe相关问题解析
+                    path: 'iframeProblem',
+                    name: 'iframeProblem',
+                    component: e => import('@/mardowns/IdePlatform/ShiPeiNanDianJieXi/IframeProblem.md')    
+                },
+                /* ---------------------- 4 适配技术难点解析: 结束 -------------------------- */
 
-                /* ---------------------- 3 适配技术难点解析: 结束 -------------------------- */
+                /* ---------------------- 5 网站不适配自查方式: 开始 -------------------------- */
+                { // 预览版不适配
+                    path: 'previewProblem',
+                    name: 'previewProblem',
+                    component: e => import('@/mardowns/IdePlatform/BuShiPeiZiCha/PreviewProblem.md')    
+                },
+                { // 正式版适配效果丢失
+                    path: 'formalEdition',
+                    name: 'formalEdition',
+                    component: e => import('@/mardowns/IdePlatform/BuShiPeiZiCha/FormalEdition.md')    
+                },
+                { // 不常见问题分析及处理思路
+                    path: 'otherProblem',
+                    name: 'otherProblem',
+                    component: e => import('@/mardowns/IdePlatform/BuShiPeiZiCha/OtherProblem.md')    
+                },
+                /* ---------------------- 5 网站不适配自查方式: 结束 -------------------------- */
             ]
         }
     ]
