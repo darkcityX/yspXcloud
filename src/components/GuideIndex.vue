@@ -7,7 +7,7 @@
                         <img src="./../assets/images/math.gif" alt="">       
                     </div>  
                     <div class="navlist">
-                        <Menu :active-name="activeMenu" width="auto" @on-select="routerParams">
+                        <Menu @on-select="routerParams" :active-name="activeMenu" width="auto" >
                             <MenuItem 
                                 v-for="(list,index) in leftNav" 
                                 :key="index" 
@@ -77,15 +77,19 @@
             // markdown 代码块高亮
             highlightCode();    
         },
+        destroyed(){
+            // 清除当前组件左侧导航栏缓存
+            localStorage.clear("activeMenu");
+        },
         methods: {
             routerParams(name){ // 根据激活路由进行当前刷新菜单栏的存储
-                console.log( "------ 调用初始路由判断函数 ------" );
-                console.log( name );  
+                // console.log( "------ 调用初始路由判断函数 ------" );
+                // console.log( name );  
                 localStorage.setItem( "activeMenu" , name );           
             },
             getActiveMenu(){ // 当页面刷新，根据本地存储激活的菜单栏进行状态存储
                 let activeMenu = !localStorage.getItem("activeMenu") ? '' : localStorage.getItem("activeMenu");
-                console.log( activeMenu );
+                // console.log( activeMenu );
                 switch( activeMenu ){
                     case '':
                         this.activeMenu = '介绍'; 

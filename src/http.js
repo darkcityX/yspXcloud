@@ -32,6 +32,7 @@ axios.interceptors.request.use(
 // 4、添加响应拦截器
 axios.interceptors.response.use(
     res =>{
+        console.log( res );
         if( res.status === 200 ){ // 请求头状态码200
             if( res.data ){
                 setTimeout(()=>{ // 隐藏加载状态

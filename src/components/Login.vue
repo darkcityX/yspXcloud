@@ -44,7 +44,7 @@
                         { required: true, message: '请输入您的密码', trigger: 'blur' },
                         { type: 'string', min: 6, max: 12, message: '请输入6~12位密码', trigger: 'blur' }
                     ]
-                }
+                },
 			}
         },
         computed : {
@@ -91,7 +91,6 @@
             getUserList(){
                 this.$axios.get('/user.json')
                     .then(res=>{
-                        // this.$store.dispatch("changeisLogin",true);
                         this.$store.dispatch("saveUserLists",res);
                     }).catch(err=>{
                         console.log(err);

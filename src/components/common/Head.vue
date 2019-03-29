@@ -1,6 +1,6 @@
 <template>
     <div class="head">
-        <Menu class="headContainer" mode="horizontal" theme="light" active-name="指南">
+        <Menu class="headContainer" @on-select="headMenu" mode="horizontal" theme="light" :active-name="activeMenu">
             <div class="layout-logo">
                 <img src="@/assets/images/logo2.png" alt="">
             </div>
@@ -24,7 +24,9 @@
                     { title : '教程',        name : '教程',         iconType: 'ios-analytics',  address: '/query=1'},
                     { title : '社区',        name : '社区',         iconType: 'ios-paper',      address: '/query=2'},
                     { title : '相关技术支持', name : '相关技术支持',  iconType: 'ios-navigate',   address: '/query=3'}
-                ]
+                ],
+
+                activeMenu: "指南"
             }
         },
         watch:{
@@ -32,7 +34,7 @@
                 // console.log( to.path );
                 if( to.path.indexOf("query") != -1 ){
                     let query = to.path.slice(to.path.indexOf("=")+1);
-                    console.log( query );
+                    // console.log( query );
                     switch( query ) {
                         case '1':
                             window.location.href = 'http://dev.xcloud.yunshipei.com/index.html';
@@ -47,6 +49,24 @@
 
                 }
             }
+        },
+        created(){
+            let headMenu = localStorage.getItem("headMenu",name);
+            if( !headMenu ){
+                console.log( "-------- 缓存中无数据 -----------" );
+                return;
+            }else{
+                console.log( `-------- 缓存中数据 ---- ${ headMenu } -------`);
+                this.activeMenu = headMenu;
+            }
+        },
+        methods:{
+            headMenu(name){
+                console.log( name );
+                // 存储当前激活菜单
+                localStorage.setItem("headMenu",name);
+                console.log( `缓存中的存储：`+localStorage.getItem("headMenu") );
+            }    
         }
     }
 </script>

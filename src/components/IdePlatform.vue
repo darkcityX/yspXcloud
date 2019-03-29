@@ -8,7 +8,7 @@
                         <!-- <img src="./../assets/images/math.gif" alt="">        -->
                     </div>  
                     <div class="navlist">
-                        <Menu :active-name="menuActive" theme="light" width="auto" :open-names="[openSubMenu]">
+                        <Menu @on-select="navigateTo" @on-open-change="SubMenuTo" :active-name="menuActive" accordion theme="light" width="auto" :open-names="[openSubMenu]" >
                             <Submenu v-for="(subMenu,index) in leftNav" :key="index" :name="subMenu.name">
                                 <template slot="title">
                                     {{ subMenu.name }}
@@ -192,17 +192,25 @@
                 ],
 
                 // open一级菜单
-                openSubMenu : 'IDE平台问题解析',
+                openSubMenu : '相关规范整理',
                 // 当前菜单栏动态标签
-                menuActive: '相关规范整理',
+                menuActive: 'Xcloud开发规范整理',
 
 
             }
         },
+        created(){
+            let beforeStatus = localStorage.getItem("IDEopenSubMenu");
+            let beforeStatusMenu = localStorage.getItem("IDEmenuActive");
+            if( !beforeStatus && !beforeStatusMenu ){
+                // console.log("------ IDE平台左侧导航栏无缓存 -------");
+                return;
+            }else{
+                this.openSubMenu =  beforeStatus;
+                this.menuActive = beforeStatusMenu;
+            }
+        },
         mounted(){
-            // 导入初始路由判断函数 
-            // this.judgmentPage();
-            
             // markdown 代码块高亮
             highlightCode();
         },
@@ -210,30 +218,19 @@
             // markdown 代码块高亮
             highlightCode();    
         },
+        destroyed(){
+            // 销毁IDE左侧导航栏缓存
+            localStorage.clear("IDEopenSubMenu");
+            localStorage.clear("IDEmenuActive");
+        },
         methods: {
-            routerParams(name){ // 根据激活路由进行当前刷新菜单栏的存储
-                // console.log( "------ 调用初始路由判断函数 ------" );
-                // console.log( name );  
-                // localStorage.setItem( "activeMenu" , name );           
+            navigateTo(name){ // 当前选定菜单栏
+                // console.log( name );
+                localStorage.setItem("IDEmenuActive",name);
             },
-            getActiveMenu(){ // 当页面刷新，根据本地存储激活的菜单栏进行状态存储
-                // let activeMenu = !localStorage.getItem("activeMenu") ? '' : localStorage.getItem("activeMenu");
-                // console.log( activeMenu );
-                // switch( activeMenu ){
-                //     case '':
-                //         this.activeMenu = '介绍'; 
-                //         this.$router.push({path:'/guideIndex/introduction'});
-                //         break;  
-                //     case '介绍':
-                //         this.activeMenu = activeMenu;
-                //         break; 
-                //     case '示例':
-                //         this.activeMenu = activeMenu;
-                //         break; 
-                //     case '版本':
-                //         this.activeMenu = activeMenu;
-                //         break;
-                // }
+            SubMenuTo(name){ // 当前展开得菜单栏
+                // console.log("------------当前展开得"+ name);
+                localStorage.setItem("IDEopenSubMenu",name);
             }    
         }
     }
