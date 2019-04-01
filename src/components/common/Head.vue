@@ -53,19 +53,19 @@
         created(){
             let headMenu = localStorage.getItem("headMenu",name);
             if( !headMenu ){
-                console.log( "-------- 缓存中无数据 -----------" );
-                return;
+                // console.log( "-------- 缓存中无数据 -----------" );
+                
             }else{
-                console.log( `-------- 缓存中数据 ---- ${ headMenu } -------`);
+                // console.log( `-------- 缓存中数据 ---- ${ headMenu } -------`);
                 this.activeMenu = headMenu;
             }
         },
         methods:{
             headMenu(name){
-                console.log( name );
+                // console.log( name );
                 // 存储当前激活菜单
                 localStorage.setItem("headMenu",name);
-                console.log( `缓存中的存储：`+localStorage.getItem("headMenu") );
+                // console.log( `缓存中的存储：`+localStorage.getItem("headMenu") );
             }    
         }
     }

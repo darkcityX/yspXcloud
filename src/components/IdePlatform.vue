@@ -4,11 +4,15 @@
             <Col span="4">
                 <div class="leftNavList">
                     <div class="ad">
-                        <Input search enter-button placeholder="请输入要搜索的关键字"/>
-                        <!-- <img src="./../assets/images/math.gif" alt="">        -->
+                        <Input v-model="searchValue" @on-focus="searchFocus();"  search enter-button placeholder="请输入要搜索的关键字"/>
+                        <div class="searchShow" v-show="searchViewShow">
+                            <ul>
+                                <li v-for="(list,index) in searchList" :key="index" :data-boss="list.boss" v-show="list.isShow" @click="toView(list.name,list.boss,list.href);">{{ list.name }}</li>
+                            </ul>
+                        </div>
                     </div>  
                     <div class="navlist">
-                        <Menu @on-select="navigateTo" @on-open-change="SubMenuTo" :active-name="menuActive" accordion theme="light" width="auto" :open-names="[openSubMenu]" >
+                        <Menu @on-select="navigateTo" @on-open-change="SubMenuTo" :active-name="menuActive" theme="light" width="auto" :open-names='openSubMenu' >
                             <Submenu v-for="(subMenu,index) in leftNav" :key="index" :name="subMenu.name">
                                 <template slot="title">
                                     {{ subMenu.name }}
@@ -192,25 +196,62 @@
                 ],
 
                 // open一级菜单
-                openSubMenu : '相关规范整理',
+                openSubMenu : [],//'相关规范整理',
                 // 当前菜单栏动态标签
                 menuActive: 'Xcloud开发规范整理',
 
 
+                // search
+                searchViewShow: false,    // 搜索下拉框是否出现
+                searchValue : "",
+                searchList: [],
             }
         },
+        watch:{
+            searchValue(key){
+                console.log( key );
+                this.searchList.forEach((item,index,arr)=>{
+                    item.isShow = false;
+                    if( item.name.includes(key) ){
+                        item.isShow = true;
+                    }
+                });
+
+            }
+               
+        },
         created(){
+            console.log( '------------ 组件创建完毕 ---------------' );
+            /**
+             * 1、左侧导航栏状态记录 
+             * */ 
             let beforeStatus = localStorage.getItem("IDEopenSubMenu");
             let beforeStatusMenu = localStorage.getItem("IDEmenuActive");
             if( !beforeStatus && !beforeStatusMenu ){
                 // console.log("------ IDE平台左侧导航栏无缓存 -------");
-                return;
+                
             }else{
                 this.openSubMenu =  beforeStatus;
                 this.menuActive = beforeStatusMenu;
             }
+
+            /**
+             *  2、将左侧导航栏全部展开
+             * 
+             * */ 
+            this.openSubMenu = this.leftNav.map((item,index,arr)=>{
+                return item.name;
+            });
+            console.log( this.openSubMenu  );
+
         },
         mounted(){
+            console.log( '------------ 组件挂载完毕 -------------------' );
+            /**
+             * 2、search列表数据处理
+             **/
+            this.searchList = this.searchData(this.leftNav);
+
             // markdown 代码块高亮
             highlightCode();
         },
@@ -231,7 +272,57 @@
             SubMenuTo(name){ // 当前展开得菜单栏
                 // console.log("------------当前展开得"+ name);
                 localStorage.setItem("IDEopenSubMenu",name);
-            }    
+            },
+            searchData(arr){ // 搜索列表处理
+                // console.log("-------------调用该函数---------------");
+                if( arr.length > 0 ){
+                    let newList = [];
+                    arr.forEach((item)=>{
+                        item.secondary.map((list,index,arr)=>{
+                            newList.push({
+                                'name': list.name,
+                                'boss': item.name,
+                                'href': list.href,
+                                'isShow' : true,
+                            });
+                        });
+                    });
+                    return newList;
+                }
+            },
+            searchFocus(){
+                console.log("------ 聚焦 ------");
+                this.searchViewShow = true;
+            },
+            searchBlur(){
+                console.log("------ 失焦 ------");
+                console.log( this );
+                // 关闭search搜索弹窗
+                this.searchViewShow = false;
+            },
+            toView(menuActive,openSubMenu,pathName){
+                // 关闭search搜索弹窗
+                this.searchViewShow = false;
+
+                // 改变左侧导航
+                console.log( menuActive + "--------------" + openSubMenu);
+                this.menuActive = menuActive;
+                // this.openSubMenu = openSubMenu;
+
+                // 更新缓存
+                localStorage.setItem("IDEmenuActive",menuActive);
+                localStorage.setItem("IDEopenSubMenu",openSubMenu);
+
+                // 路由跳转
+                this.$router.push({
+                    path: pathName
+                });
+
+                console.log( this.menuActive + "-------------" + this.openSubMenu );
+
+                
+            },
+
         }
     }
 </script>
@@ -244,14 +335,55 @@
             min-width: 160px;
             background: #fff;
             .ad{
+                position: relative;
                 padding: 20px 10px;
                 width: 100%;
                 border-right: 1px solid #e5e5e5;
-                overflow: hidden;
+                // overflow: hidden;
+                .searchShow{
+                    position: absolute;
+                    top: 55px;
+                    left: 0px;
+                    z-index: 1000;
+                    padding: 0 10px;
+                    width: 100%;
+                    height: 100px;
+                    ul{
+                        padding: 0 10px;
+                        max-height: 200px;
+                        list-style-type: none;
+                        overflow-y: auto;
+                        border: 1px solid #f5f5f5;
+                        border-radius: 4px;
+                        box-shadow: 0px 4px 4px 0px #e5e5e5;
+                        background: #fff;
+                        li{
+                            
+                            color: #666;
+                            font-size: 14px;
+                            height: 36px;
+                            line-height: 36px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            border-bottom: 1px dashed #e5e5e5;
+                            cursor: pointer;
+                        }
+                        li:hover{
+                            padding: 0 10px;
+                            color: #fff;
+                            border: none;
+                            background: #2d8cf0;
+                        }
+                    }
+                }
             }
             .navlist{
                 .ivu-menu{
                     .ivu-menu-submenu{
+                        .ivu-menu-submenu-title{
+                            background: #f5f5f5;
+                        }
                         .ivu-menu-submenu-title,.ivu-menu-item{
                             text-align: left;
                         }
