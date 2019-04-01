@@ -4,7 +4,8 @@
             <Col span="4">
                 <div class="leftNavList">
                     <div class="ad">
-                        <Input v-model="searchValue" @on-focus="searchFocus();"  search enter-button placeholder="请输入要搜索的关键字"/>
+						<!-- @on-blur="searchBlur();" -->
+                        <Input v-model="searchValue" @on-focus="searchFocus();" search enter-button placeholder="请输入要搜索的关键字"/>
                         <div class="searchShow" v-show="searchViewShow">
                             <ul>
                                 <li v-for="(list,index) in searchList" :key="index" :data-boss="list.boss" v-show="list.isShow" @click="toView(list.name,list.boss,list.href);">{{ list.name }}</li>
@@ -30,6 +31,18 @@
                 </div>
             </Col>
         </Row>
+		<div 
+			class="modelView"
+			v-show="searchViewShow" 
+			@click="searchBlur();"
+			style="width:100%;height: 100%; 
+				background: rgba(255,255,255,0); 
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 999;">
+
+		</div>
     </div>
 </template>
 
