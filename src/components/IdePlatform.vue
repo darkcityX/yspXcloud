@@ -433,7 +433,7 @@
 					padding: 10px;
 					font-size: 16px;
 					span{
-						padding: 0 2px;
+						// padding: 0 2px;
 					}
 				}
 			}
@@ -441,6 +441,7 @@
                 margin: 0 auto;
                 padding: 10px;
                 display: block;
+                max-width: 100%;
                 text-align: center;
                 background: #e5e5e5;
             }

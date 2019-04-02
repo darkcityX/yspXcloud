@@ -26,3 +26,26 @@ window.onload = function(){ // onload方法：在页面元素全部加载后执�
 }
 
 ```
+<br>
+
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、关于控制基于平台的轮播图参数设置函数<b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说明：放置在全局函数中进行组件判断即可
+
+```javascript
+
+(function($) {
+    initDJFeng();
+    function initDJFeng() {
+        var w = $('.Dslider-37').width() / 2;
+        $('.Dslider-37').length && $('.Dslider-37').flexslider({
+            move: 2,
+            itemWidth: w,
+            itemMargin: 0,
+            minItems: 2
+        });
+    }
+
+})(Zepto);
+
+```
