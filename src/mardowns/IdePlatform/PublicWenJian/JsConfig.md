@@ -21,6 +21,10 @@ $(function(){ // 自调函数：在解析到当前代码片段的时候执行
 
 }());
 
+(function(){ // 自调函数：原生js的子调方式 
+
+})();
+
 window.onload = function(){ // onload方法：在页面元素全部加载后执行
 
 }

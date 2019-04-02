@@ -18,7 +18,7 @@
 
 <br>
 
-1、封装自定义API预处理DOM函数
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、封装自定义API预处理DOM函数
 
 ```javascript
 
@@ -43,7 +43,7 @@
 
 ```
 
-2、数据采集中的使用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、数据采集中的使用
 
 ```javascript
 
@@ -65,7 +65,7 @@ return data;
 
 ```
 
-3、HTML模板中的DOM重组
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、HTML模板中的DOM重组
 ```html
 
  <div class="Dblank-1">
@@ -80,37 +80,37 @@ return data;
  </div>
 
 ```
-4、样式封装
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、样式封装
 
 ```less
-.seamlessCarousel{
-    border-bottom: 4px solid #e5e5e5;
-    .title{
-        padding: 5px 10px;
-        border-bottom: 1px solid @mc;
-        .title_pic{
-            display: inline-block;
-            vertical-align: middle;
-            img{
-                width: 28px;
-                height: 28px;
-            }
-        }
-        h3{
-            .resize;
-            display: inline-block;
-            color: @mc;
-            font-size: 16px;
-            vertical-align: middle;
-        }
-    }
+/*
+ * 自定义组件无缝轮播样式封装
+ * 说明：
+ *    1)、调用less函数不可跳过传参
+ *    2)、封装该函数type主要针对头部样式的变换
+ *    3)、在该函数中，轮播图片是有设置了宽高的，但可以进行跟参调整
+ * 约束：请注意DOM结构
+ * @type 类型——可选封装组件类型
+ *  [
+ *     { // 类型1 ———— 白底主色调icon
+ *          type1           参数说明：简约类型头部 【必填】
+ *          @titleHeight    参数说明：标题栏高度 【选填】 默认40px    单位 px/rem/em;
+ *          @bannerWidth    参数说明：图片宽度 【选填】 默认200px    单位 px/rem/em;
+ *          @bannerHeight   参数说明：图片及容器高度 【选填】 默认125px    单位 px/rem/em; 
+ *     }
+ *  ] 
+ *
+**/
+
+.seamlessCarouselPublicSet(@bannerWidth,@bannerHeight){
+    border-bottom: 4px solid @lineC;
     .boxContainer{
         margin: 10px;
         position: relative;
         overflow-x: auto;
         overflow-y: hidden;  
         position: relative;
-        height: 125px;
+        height: @bannerHeight;
         background: #fff;
         ul{
             .resize;
@@ -126,14 +126,14 @@ return data;
             li{
                 padding: 0 10px;
                 position: relative;
-                width: 200px;
-                max-height: 125px;
+                width: @bannerWidth;
+                max-height: @bannerHeight;
                 a{
                     display: block;
                     width: 100%;
                     img{
                         width: 200px;
-                        height: 125px;
+                        height: @bannerHeight;
                     }
                     .imgName{
                         .resize;
@@ -161,20 +161,46 @@ return data;
             li:not(:first-child){
                 padding-left: 0;
             }
-            
-
         } 
     }
 }
 
-.Dblank-1{
-    .seamlessCarousel; 
-    
+.seamlessCarouselType1(@titleHeight){ // 自定义无缝轮播组件类型1——头部简约类型
+    .title{
+        padding: 0 10px;
+        height: @titleHeight;
+        border-bottom: 1px solid @mc;
+        a{
+            display: block;
+            color: @mc;
+            line-height: 40px;
+            text-decoration: none;
+            .flex;
+            span:first-child{
+                font-weight: 600;
+            }
+            span:last-child{
+                color: @fc2; 
+                font-size: 14px;
+            }
+        }
+    }    
+}
+
+.seamlessCarouselPublic(@type,@titleHeight:40px,@bannerWidth:200px,@bannerHeight:125px,) when ( @type = type1 ){
+    .seamlessCarouselType1(@titleHeight);
+    .seamlessCarouselPublicSet(@bannerWidth,@bannerHeight);    
+}
+
+
+
+.Dblank-1{ // type1 调用
+    .seamlessCarouselPublic(type1); 
 }
 
 ```
 
-5、全局轮播函数封装
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5、全局轮播函数封装
 
 ```javascript
 
@@ -224,7 +250,13 @@ return data;
     $(".Dblank-1").length && seamlessCarousel( $(".Dblank-1 .banner") ,  1 );
 
 ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6、效果展示
 
+<br>
+
+![规范1](./../../../assets/images/IdePlatformImages/bl.jpg "规范")
+
+<br>
 
 ## 二、一级菜单栏自定义组件封装
 

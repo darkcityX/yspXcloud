@@ -242,7 +242,8 @@
             let beforeStatusMenu = localStorage.getItem("IDEmenuActive");
             if( !beforeStatus && !beforeStatusMenu ){
                 // console.log("------ IDE平台左侧导航栏无缓存 -------");
-                
+				 this.openSubMenu =  '相关规范整理';
+				 this.menuActive = 'Xcloud开发规范整理';
             }else{
                 this.openSubMenu =  beforeStatus;
                 this.menuActive = beforeStatusMenu;
