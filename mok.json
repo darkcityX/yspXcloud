@@ -14,7 +14,13 @@
                 "username" : "yangzhe@163.com",
                 "password" : "123456.",
                 "tocken" : "wd5250432225ohpyaw"
-            }            
+            },
+            {
+                "uid" : "002",
+                "username" : "xian@ysp.com",
+                "password" : "123456.",
+                "tocken" : "wd5250432225ohpyaw"    
+            }          
         ]
 
     }
