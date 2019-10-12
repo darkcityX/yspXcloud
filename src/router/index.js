@@ -7,16 +7,21 @@ Vue.use(Router)
 const router =  new Router({
     // mode: 'history',
     routes: [
+        // {
+        //     path: '/',
+        //     redirect : "/login",
+        //     component: e => import('@/components/Login')
+		// },
+		// {
+		// 	path: '/login',
+		// 	name: 'login',
+		// 	component: e => import('@/components/Login')
+        // },
         {
             path: '/',
-            redirect : "/login",
-            component: e => import('@/components/Login')
-		},
-		{
-			path: '/login',
-			name: 'login',
-			component: e => import('@/components/Login')
-		},
+            redirect : "/guideIndex",
+            component: e => import('@/components/GuideIndex')
+        },
         { // 指南
             path: '/guideIndex',
             name: 'GuideIndex',
@@ -167,7 +172,8 @@ router.beforeEach((to, from, next) => {
 	if( !checked(arr,to.path) ){
 		next();
 	}else{
-		isLogin ? next() : router.push('/login');
+        // isLogin ? next() : router.push('/login');
+        next();
 	}
 
 });

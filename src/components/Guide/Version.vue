@@ -28,43 +28,17 @@
                         versionCode: '发布1.0版本',  // 版本号
                         fixContent: [
                             {
-                                fixInfo: '11111111',   // 修改信息
+                                fixInfo: '相关规范整理',   // 修改信息
                                 weights : 0
                             },
                             {
-                                fixInfo: '22222',   // 修改信息
+                                fixInfo: 'xcloud问题排错整理',   // 修改信息
                                 weights : 0
                             },
                             {
-                                fixInfo: '3333',   // 修改信息
+                                fixInfo: '组件相关技术整理',   // 修改信息
                                 weights : 0
-                            },
-                            {
-                                fixInfo: '444444444',   // 修改信息
-                                weights : 0
-                            },
-                        ]
-
-                    },
-                    {
-                        versionCode: '发布2.0版本',  // 版本号
-                        fixContent: [
-                            {
-                                fixInfo: '444444444',   // 修改信息
-                                weights : 0
-                            },
-                            {
-                                fixInfo: '22222',   // 修改信息
-                                weights : 0
-                            },
-                            {
-                                fixInfo: '333333',   // 修改信息
-                                weights : 0
-                            },
-                            {
-                                fixInfo: '11111',   // 修改信息
-                                weights : 0
-                            },   
+                            }
                         ]
 
                     }
